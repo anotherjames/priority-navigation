@@ -1,6 +1,6 @@
 /*
  * priority-nav - v1.0.13 | (c) 2018 @gijsroge | MIT license
- * Repository: https://github.com/gijsroge/priority-navigation.git
+ * Repository: git+https://github.com/gijsroge/priority-navigation.git
  * Description: Priority+ pattern navigation that hides menu items if they don't fit on screen.
  * Demo: http://gijsroge.github.io/priority-nav.js/
  */
@@ -12,7 +12,7 @@
     } else {
         root.priorityNav = factory(root);
     }
-})(typeof window !== `undefined` && window || this, function (root) {
+})(typeof window !== 'undefined' && window || this, function (root) {
 
     "use strict";
 
@@ -172,7 +172,7 @@
      * @param mainNavWrapper
      */
     var prepareHtml = function (_this, settings) {
-        let c;
+        var c;
 
         /**
          * Create dropdow menu
@@ -498,14 +498,14 @@
         var sum = 0;
         for (var i = 0; i < children.length; i++) {
             if (children[i].nodeType !== 3) {
-                if (children[i] === e.querySelector(mainNav)) {
-                  sum += getChildrenWidth(children[i]);
+              if (children[i] === e.querySelector(mainNav)) {
+                sum += getChildrenWidth(children[i]);
+              }
+              else {
+                if(!isNaN(children[i].offsetWidth)){
+                  sum += children[i].offsetWidth;
                 }
-                else {
-                  if(!isNaN(children[i].offsetWidth)){
-                    sum += children[i].offsetWidth;
-                  }
-                }
+              }
 
             }
         }

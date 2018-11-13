@@ -6,7 +6,7 @@
     } else {
         root.priorityNav = factory(root);
     }
-})(window || this, function (root) {
+})(typeof window !== 'undefined' && window || this, function (root) {
 
     "use strict";
 
@@ -38,6 +38,8 @@
         throttleDelay:              50, // this will throttle the calculating logic on resize because i'm a responsible dev.
         offsetPixels:               0, // increase to decrease the time it takes to move an item.
         count:                      true, // prints the amount of items are moved to the attribute data-count to style with css counter.
+        navDropdownClasses:         [], // Classes to add to the dropdown wrapper.
+        navDropdownToggleClasses:   [], // Classes to add to the dropdown toggle.
 
         //Callbacks
         moved: function () {
@@ -164,6 +166,7 @@
      * @param mainNavWrapper
      */
     var prepareHtml = function (_this, settings) {
+        var c;
 
         /**
          * Create dropdow menu
@@ -206,9 +209,21 @@
         navDropdown.classList.add(settings.navDropdownClassName);
         navDropdown.classList.add("priority-nav__dropdown");
 
+        for (c in settings.navDropdownClasses) {
+          if (settings.navDropdownClasses.hasOwnProperty(c)) {
+            navDropdown.classList.add(settings.navDropdownClasses[c]);
+          }
+        }
+
         navDropdownToggle.classList.add(settings.navDropdownToggleClassName);
         navDropdownToggle.classList.add("priority-nav__dropdown-toggle");
-        
+
+        for (c in settings.navDropdownToggleClasses) {
+          if (settings.navDropdownToggleClasses.hasOwnProperty(c)) {
+            navDropdownToggle.classList.add(settings.navDropdownToggleClasses[c]);
+          }
+        }
+
         //fix so button is type="button" and do not submit forms
         navDropdownToggle.setAttribute("type", "button");
 
@@ -308,7 +323,7 @@
             /**
              * Keep executing until all menu items that are overflowing are moved
              */
-            while (totalWidth <= restWidth  && _this.querySelector(mainNav).children.length > 0 || viewportWidth < settings.breakPoint && _this.querySelector(mainNav).children.length > 0) {
+            while (totalWidth < restWidth  && _this.querySelector(mainNav).children.length > 0 || viewportWidth < settings.breakPoint && _this.querySelector(mainNav).children.length > 0) {
                 //move item to dropdown
                 priorityNav.toDropdown(_this, identifier);
                 //recalculate widths
@@ -477,9 +492,14 @@
         var sum = 0;
         for (var i = 0; i < children.length; i++) {
             if (children[i].nodeType !== 3) {
+              if (children[i] === e.querySelector(mainNav)) {
+                sum += getChildrenWidth(children[i]);
+              }
+              else {
                 if(!isNaN(children[i].offsetWidth)){
-                    sum += children[i].offsetWidth;
+                  sum += children[i].offsetWidth;
                 }
+              }
 
             }
         }

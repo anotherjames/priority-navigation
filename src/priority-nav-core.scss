@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 /*
  * Core styles for PriorityNav.js
  * These styles are not optional and should always be included
@@ -15,13 +16,17 @@
     * the entire width of its parent. This will break the plugin.
     */
   > ul{
-    display: inline-block;
+    //display: inline-block;
     > li{
       display: inline-block;
     }
   }
   &-has-dropdown{
+    display: flex;
+    flex-flow: row nowrap;
+
     .priority-nav{
+      width: auto;
       &__dropdown{
         &-toggle{
           position: relative;
@@ -31,16 +36,32 @@
   }
   &__wrapper{
     position: relative;
+    margin-top: 0;
+    z-index: 2;
   }
   &__dropdown{
     position: absolute;
     visibility: hidden;
     &.show{
       visibility: visible;
+      background-color: #FFFFFF;
+
+      a {
+        color: #727174;
+
+        &:hover {
+          color: #ff9a00;
+        }
+      }
+    }
+    a {
+      color: transparent;
     }
     &-toggle{
       visibility: hidden;
       position: absolute;
+      flex: 0;
+      transition: all .225s ease-out;
     }
   }
   &-is-visible{
@@ -49,4 +70,13 @@
   &-is-hidden{
     visibility: hidden;
   }
+
+  &__dropdown-toggle {
+    background-image: url("../demo/images/dist/svg/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: calc(100% - .3125rem) center;
+    line-height: normal;
+  }
 }
+
+/* purgecss end ignore */
