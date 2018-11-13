@@ -12,7 +12,7 @@
     } else {
         root.priorityNav = factory(root);
     }
-})(window || this, function (root) {
+})(typeof window !== `undefined` && window || this, function (root) {
 
     "use strict";
 
@@ -211,10 +211,22 @@
          */
         navDropdown.classList.add(settings.navDropdownClassName);
         navDropdown.classList.add("priority-nav__dropdown");
+        navDropdown.classList.add("list-reset");
+        navDropdown.classList.add("border");
+        navDropdown.classList.add("mt-0");
+        navDropdown.classList.add("pin-r");
 
         navDropdownToggle.classList.add(settings.navDropdownToggleClassName);
         navDropdownToggle.classList.add("priority-nav__dropdown-toggle");
-        
+        navDropdownToggle.classList.add("py-4");
+        navDropdownToggle.classList.add("pl-1");
+        navDropdownToggle.classList.add("pr-4");
+        navDropdownToggle.classList.add("text-grey-dark");
+        navDropdownToggle.classList.add("no-underline");
+        navDropdownToggle.classList.add("font-slab");
+        navDropdownToggle.classList.add("font-light");
+        navDropdownToggle.classList.add("hover:text-orange");
+
         //fix so button is type="button" and do not submit forms
         navDropdownToggle.setAttribute("type", "button");
 
@@ -314,7 +326,7 @@
             /**
              * Keep executing until all menu items that are overflowing are moved
              */
-            while (totalWidth <= restWidth  && _this.querySelector(mainNav).children.length > 0 || viewportWidth < settings.breakPoint && _this.querySelector(mainNav).children.length > 0) {
+            while (totalWidth < restWidth  && _this.querySelector(mainNav).children.length > 0 || viewportWidth < settings.breakPoint && _this.querySelector(mainNav).children.length > 0) {
                 //move item to dropdown
                 priorityNav.toDropdown(_this, identifier);
                 //recalculate widths
@@ -482,9 +494,14 @@
         var children = e.childNodes;
         var sum = 0;
         for (var i = 0; i < children.length; i++) {
-            if (children[i].nodeType !== 3) {
-                if(!isNaN(children[i].offsetWidth)){
+            if (children[i].nodeType !== 3 /*&& children[i] !== toggleWrapper*/) {
+                if (children[i] === e.querySelector(mainNav)) {
+                  sum += getChildrenWidth(children[i]);
+                }
+                else {
+                  if(!isNaN(children[i].offsetWidth)){
                     sum += children[i].offsetWidth;
+                  }
                 }
 
             }
