@@ -37,12 +37,24 @@
 
 .priority-nav__dropdown.show {
   visibility: visible;
+  background-color: #FFFFFF;
+}
+
+.priority-nav__dropdown a {
+  color: transparent;
+}
+.priority-nav__dropdown.show a {
+  color: #727174;
+}
+.priority-nav__dropdown.show a:hover {
+  color: #ff9a00;
 }
 
 .priority-nav__dropdown-toggle {
   visibility: hidden;
   position: absolute;
   flex: 0;
+  transition: all .225s ease-out;
 }
 
 .priority-nav-is-visible {
@@ -51,6 +63,25 @@
 
 .priority-nav-is-hidden {
   visibility: hidden;
+}
+
+.priority-nav-has-dropdown {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.priority-nav-has-dropdown .priority-nav-nav {
+  width: auto;
+}
+.nav__dropdown-wrapper {
+  margin-top: 0;
+  z-index: 2;
+}
+.priority-nav__dropdown-toggle {
+  background-image: url("../demo/images/dist/svg/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - .3125rem) center;
+  line-height: normal;
 }
 
 /* purgecss end ignore */
