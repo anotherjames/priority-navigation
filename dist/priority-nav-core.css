@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 /*
  * Core styles for PriorityNav.js
  * These styles are not optional and should always be included
@@ -13,9 +14,9 @@
     */
 }
 
-.priority-nav > ul {
+/*.priority-nav > ul {
   display: inline-block;
-}
+}*/
 
 .priority-nav > ul > li {
   display: inline-block;
@@ -41,6 +42,7 @@
 .priority-nav__dropdown-toggle {
   visibility: hidden;
   position: absolute;
+  flex: 0;
 }
 
 .priority-nav-is-visible {
@@ -50,3 +52,5 @@
 .priority-nav-is-hidden {
   visibility: hidden;
 }
+
+/* purgecss end ignore */

@@ -1,18 +1,51 @@
 {
-  "name": "priority-nav",
-  "title": "priority-nav",
-  "version": "1.0.13",
-  "main": "dist/priority-nav.js",
-  "description": "Priority+ pattern navigation that hides menu items if they don't fit on screen.",
-  "homepage": "http://gijsroge.github.io/priority-nav.js/",
+  "_from": "github:anotherjames/priority-navigation",
+  "_id": "priority-nav@1.0.13",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/priority-nav",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "anotherjames/priority-navigation",
+    "rawSpec": "anotherjames/priority-navigation",
+    "saveSpec": "github:anotherjames/priority-navigation",
+    "fetchSpec": null,
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "github:anotherjames/priority-navigation#996ba7deecefd75fffd7acffe36292de2c05e1bd",
+  "_spec": "anotherjames/priority-navigation",
+  "_where": "/Users/jameswilliams/work/alfresco/builder_net",
   "author": {
     "name": "Gijs Rogé",
     "url": "http://twitter.com/gijsroge"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gijsroge/priority-navigation.git"
+  "bugs": {
+    "url": "https://github.com/gijsroge/priority-navigation/issues"
   },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Priority+ pattern navigation that hides menu items if they don't fit on screen.",
+  "devDependencies": {
+    "crayola": "0.0.1",
+    "grunt": "1.0.2",
+    "grunt-bump": "0.8.0",
+    "grunt-contrib-concat": "1.0.1",
+    "grunt-contrib-jshint": "1.1.0",
+    "grunt-contrib-uglify": "3.3.0",
+    "grunt-contrib-watch": "1.0.1",
+    "grunt-sass": "2.1.0",
+    "jshint-stylish": "2.2.1",
+    "load-grunt-tasks": "3.5.2"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "homepage": "http://gijsroge.github.io/priority-nav.js/",
   "keywords": [
     "priority+",
     "responsive",
@@ -22,25 +55,15 @@
     "type": "MIT",
     "url": "https://github.com/gijsroge/priority-navigation/blob/master/LICENSE"
   },
-  "bugs": {
-    "url": "https://github.com/gijsroge/priority-navigation/issues"
-  },
-  "engines": {
-    "node": ">=0.8.0"
-  },
-  "devDependencies": {
-    "load-grunt-tasks": "3.5.2",
-    "crayola": "0.0.1",
-    "grunt": "1.0.2",
-    "grunt-bump": "0.8.0",
-    "grunt-contrib-concat": "1.0.1",
-    "grunt-contrib-jshint": "1.1.0",
-    "grunt-contrib-uglify": "3.3.0",
-    "grunt-contrib-watch": "1.0.1",
-    "jshint-stylish": "2.2.1",
-    "grunt-sass": "2.1.0"
+  "main": "dist/priority-nav.js",
+  "name": "priority-nav",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gijsroge/priority-navigation.git"
   },
   "scripts": {
     "test": "grunt jshint"
-  }
+  },
+  "title": "priority-nav",
+  "version": "1.0.13"
 }
